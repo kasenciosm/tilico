@@ -33,7 +33,7 @@ const Header = () => {
         className={`
           fixed top-0 left-0 w-full z-900
           flex justify-between items-center
-          px-6 py-3
+          px-4 md:px-8 py-3
           transition-all duration-700
           ${
             scrolled
@@ -49,7 +49,7 @@ const Header = () => {
       </header>
 
       {/* Right controls */}
-      <div className="fixed top-6 right-6 flex items-center gap-6 z-1100">
+      <div className="fixed top-4 right-4 md:top-6 md:right-6 flex items-center gap-6 z-1100">
         {/* SHOP */}
         <a
           href="https://wa.me/51944794663?text=Hola%20quiero%20hacer%20un%20pedido."
@@ -90,16 +90,16 @@ const Header = () => {
       <div
         className={`
           fixed top-0 right-0 h-full
-          w-1/3 min-w-[300px]
+          w-full md:w-1/3 min-w-[300px]
           bg-black/85 backdrop-blur-md
-          p-10 shadow-2xl
+          p-8 md:p-10 shadow-2xl
           z-1000
           transition-transform duration-500 ease-out
           ${open ? "translate-x-0" : "translate-x-full"}
         `}
         onMouseLeave={() => setOpen(false)}
       >
-        <nav className="flex flex-col gap-8 text-xl mt-24 text-white items-start">
+        <nav className="flex flex-col gap-8 text-2xl md:text-xl mt-24 text-white items-start">
           <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("home")}>Inicio</button>
           <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("nosotros")}>Nosotros</button>
           <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("tilico")}>Tilico</button>
