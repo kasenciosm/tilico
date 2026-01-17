@@ -23,7 +23,7 @@ const Footer = () => {
   <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-3 items-start gap-6">
 
     {/* Columna 1 – Texto */}
-    <div className="text-slate-600 font-hedvig text-xs leading-relaxed">
+    <div className="text-left text-slate-600 font-hedvig text-xs leading-relaxed">
       Panadería artesanal elaborada con masa madre.
       <span className="block mt-2 tracking-widest uppercase text-[10px] text-slate-400">
         Lima · Perú
