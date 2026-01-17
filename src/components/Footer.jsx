@@ -16,43 +16,39 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-[#faf7f2] mt-24 relative">
-  {/* Separador decorativo superior */}
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-slate-300"></div>
+   <footer className="bg-[#faf7f2] mt-24 relative">
+  {/* Separador superior */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-px bg-slate-300"></div>
 
-  <div className="max-w-7xl mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-3 gap-12">
+  <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-3 items-start gap-6">
 
-    {/* Marca */}
-    <div className="flex flex-col gap-4">
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="w-fit cursor-pointer"
-      >
-        <Logo />
-      </button>
-
-      <p className="text-slate-600 font-hedvig text-sm max-w-xs leading-relaxed">
-        Panadería artesanal elaborada con masa madre, respetando los
-        tiempos y procesos tradicionales.
-      </p>
+    {/* Columna 1 – Texto */}
+    <div className="text-slate-600 font-hedvig text-xs leading-relaxed">
+      Panadería artesanal elaborada con masa madre.
+      <span className="block mt-2 tracking-widest uppercase text-[10px] text-slate-400">
+        Lima · Perú
+      </span>
     </div>
 
-    {/* Navegación */}
+    {/* Columna 2 – Explorar */}
     <div>
-      <h4 className="font-hedvig text-lg mb-4">Explorar</h4>
-      <ul className="flex flex-col gap-3 text-slate-600">
+      <h4 className="font-hedvig text-[11px] mb-3 tracking-widest uppercase text-slate-700">
+        Explorar
+      </h4>
+
+      <ul className="grid grid-cols-2 gap-x-10 gap-y-1 text-xs text-slate-600">
         {[
           ["home", "Inicio"],
           ["nosotros", "Nosotros"],
           ["tilico", "Tilico"],
-          ["i+d", "Investigación y Desarrollo"],
+          ["i+d", "I+D"],
           ["productos", "Productos"],
           ["contacto", "Contacto"],
         ].map(([id, label]) => (
           <li key={id}>
             <button
               onClick={() => scrollToSection(id)}
-              className="footer-link hover:text-slate-900 transition cursor-pointer"
+              className="footer-link"
             >
               {label}
             </button>
@@ -61,19 +57,21 @@ const Footer = () => {
       </ul>
     </div>
 
-    {/* Contacto */}
-    <div id="contacto">
-      <h4 className="font-hedvig text-lg mb-4">Contacto</h4>
+    {/* Columna 3 – Contacto */}
+    <div>
+      <h4 className="font-hedvig text-[11px] mb-3 tracking-widest uppercase text-slate-700">
+        Contacto
+      </h4>
 
-      <ul className="flex flex-col items-center gap-4 text-slate-600">
+      <ul className="flex flex-col gap-4 text-xs text-slate-600">
         <li>
           <a
             href="https://wa.me/51944794663?text=Hola%20quiero%20hacer%20un%20pedido."
             target="_blank"
             rel="noreferrer"
-            className="text-2xl hover:text-slate-900 transition-transform duration-300 hover:scale-110"
+            className="footer-link"
           >
-            <FaWhatsapp />
+            <FaWhatsapp/>
           </a>
         </li>
 
@@ -82,21 +80,18 @@ const Footer = () => {
             href="https://www.instagram.com/tilico.pe"
             target="_blank"
             rel="noreferrer"
-            className="text-2xl hover:text-slate-900 transition-transform duration-300 hover:scale-110"
+            className="footer-link"
           >
-            <FaInstagram />
+            <FaInstagram/>
           </a>
-        </li>
-
-        <li className="text-sm text-slate-500 tracking-wide">
-          Lima, Perú
         </li>
       </ul>
     </div>
+
   </div>
 
   {/* Línea inferior */}
-  <div className="border-t border-slate-300 py-6 text-center text-xs tracking-widest text-slate-500">
+  <div className="border-t border-slate-300 py-4 text-center text-[10px] tracking-widest text-slate-500">
     © {new Date().getFullYear()} TILICO · PANADERÍA ARTESANAL
   </div>
 </footer>
