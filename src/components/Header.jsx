@@ -21,10 +21,23 @@ const Header = () => {
     if (!el) return;
 
     const yOffset = -80; // Ajusta este valor según la altura del header
-    const y =
-      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: "smooth" });
-  }
+  };
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
+  const showCloseIcon = open && isMobile;
 
   return (
     <>
@@ -43,7 +56,7 @@ const Header = () => {
         `}
       >
         {/* Logo */}
-        <button onClick={()=> scrollToSection("home")}>
+        <button onClick={() => scrollToSection("home")}>
           <Logo />
         </button>
       </header>
@@ -70,19 +83,35 @@ const Header = () => {
 
         {/* HAMBURGUESA */}
         <button
-          className="flex flex-col gap-1 w-8 cursor-pointer"
-          onMouseEnter={() => setOpen(true)}
+          className="relative w-8 h-8 flex items-center cursor-pointer"
+          onClick={() => isMobile && setOpen(!open)}
+          onMouseEnter={() => !isMobile && setOpen(true)}
         >
-          {[1, 2, 3].map((i) => (
-            <span
-              key={i}
-              className={`
-                  block h-0.5 w-8 rounded
-                  transition-colors duration-300
-                  ${open ? "bg-white" : "bg-slate-800"}
-                `}
-            />
-          ))}
+          <span
+            className={`
+      absolute h-[3px] w-8 rounded
+      transition-all duration-300 ease-in-out
+      ${showCloseIcon ? "rotate-45 bg-white" : "-translate-y-2 bg-slate-800"}
+    `}
+          />
+
+          {/* Línea del medio */}
+          <span
+            className={`
+      absolute h-[3px] w-8 rounded
+      transition-all duration-300 ease-in-out
+      ${showCloseIcon ? "opacity-0" : "opacity-100 bg-slate-800"}
+    `}
+          />
+
+          {/* Línea inferior */}
+          <span
+            className={`
+      absolute h-[3px] w-8 rounded
+      transition-all duration-300 ease-in-out
+      ${showCloseIcon ? "-rotate-45 bg-white" : "translate-y-2 bg-slate-800"}
+    `}
+          />
         </button>
       </div>
 
@@ -97,15 +126,45 @@ const Header = () => {
           transition-transform duration-500 ease-out
           ${open ? "translate-x-0" : "translate-x-full"}
         `}
-        onMouseLeave={() => setOpen(false)}
+        onMouseLeave={() => !isMobile && setOpen(false)}
       >
         <nav className="flex flex-col gap-8 text-2xl md:text-xl mt-24 text-white items-start">
-          <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("home")}>Inicio</button>
-          <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("nosotros")}>Nosotros</button>
-          <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("tilico")}>Tilico</button>
-          <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("i+d")}>Investigación y Desarrollo</button>
-          <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("productos")}>Productos</button>
-          <button className="hover: cursor-pointer hover:text-yellow-200" onClick={() => scrollToSection("contacto")}>Contacto</button>
+          <button
+            className="hover: cursor-pointer hover:text-yellow-200"
+            onClick={() => scrollToSection("home")}
+          >
+            Inicio
+          </button>
+          <button
+            className="hover: cursor-pointer hover:text-yellow-200"
+            onClick={() => scrollToSection("nosotros")}
+          >
+            Nosotros
+          </button>
+          <button
+            className="hover: cursor-pointer hover:text-yellow-200"
+            onClick={() => scrollToSection("tilico")}
+          >
+            Tilico
+          </button>
+          <button
+            className="hover: cursor-pointer hover:text-yellow-200"
+            onClick={() => scrollToSection("i+d")}
+          >
+            Investigación y Desarrollo
+          </button>
+          <button
+            className="hover: cursor-pointer hover:text-yellow-200"
+            onClick={() => scrollToSection("productos")}
+          >
+            Productos
+          </button>
+          <button
+            className="hover: cursor-pointer hover:text-yellow-200"
+            onClick={() => scrollToSection("contacto")}
+          >
+            Contacto
+          </button>
           <Link to="/blog">Blog</Link>
         </nav>
       </div>
