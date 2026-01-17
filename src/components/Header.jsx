@@ -1,10 +1,25 @@
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goHome = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 50);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +71,7 @@ const Header = () => {
         `}
       >
         {/* Logo */}
-        <button onClick={() => scrollToSection("home")}>
+        <button onClick={goHome} className="cursor-pointer select-none" aria-label="Ir al inicio">
           <Logo />
         </button>
       </header>
