@@ -16,74 +16,90 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-white border-t border-slate-200 mt-24">
-      <div className="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-[#faf7f2] mt-24 relative">
+  {/* Separador decorativo superior */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-slate-300"></div>
 
-        {/* Marca */}
-        <div className="flex flex-col gap-4">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="w-fit hover: cursor-pointer">
-            <Logo />
-          </button>
+  <div className="max-w-7xl mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-3 gap-12">
 
-          <p className="text-slate-600 font-hedvig text-sm max-w-xs">
-            Panadería artesanal elaborada con masa madre, respetando los
-            tiempos y procesos tradicionales.
-          </p>
-        </div>
+    {/* Marca */}
+    <div className="flex flex-col gap-4">
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="w-fit cursor-pointer"
+      >
+        <Logo />
+      </button>
 
-        {/* Navegación */}
-        <div>
-          <h4 className="font-hedvig text-lg mb-4">Explorar</h4>
-          <ul className="flex flex-col gap-2 text-slate-600">
-            <li><button onClick={() => scrollToSection("home")} className="hover:text-slate-900 hover:cursor-pointer">Inicio</button></li>
-            <li><button onClick={() => scrollToSection("nosotros")} className="hover:text-slate-900 hover:cursor-pointer">Nosotros</button></li>
-            <li><button onClick={() => scrollToSection("tilico")} className="hover:text-slate-900 hover:cursor-pointer">Tilico</button></li>
-            <li><button onClick={() => scrollToSection("i+d")} className="hover:text-slate-900 hover:cursor-pointer">Investigación y Desarrollo</button></li>
-            <li><button onClick={() => scrollToSection("productos")} className="hover:text-slate-900 hover:cursor-pointer">Productos</button></li>
-            <li><button onClick={() => scrollToSection("contacto")} className="hover:text-slate-900 hover:cursor-pointer">Contacto</button></li>
-          </ul>
-        </div>
+      <p className="text-slate-600 font-hedvig text-sm max-w-xs leading-relaxed">
+        Panadería artesanal elaborada con masa madre, respetando los
+        tiempos y procesos tradicionales.
+      </p>
+    </div>
 
-        {/* Contacto */}
-        <div id="contacto">
-          <h4 className="font-hedvig text-lg mb-4">Contacto</h4>
+    {/* Navegación */}
+    <div>
+      <h4 className="font-hedvig text-lg mb-4">Explorar</h4>
+      <ul className="flex flex-col gap-3 text-slate-600">
+        {[
+          ["home", "Inicio"],
+          ["nosotros", "Nosotros"],
+          ["tilico", "Tilico"],
+          ["i+d", "Investigación y Desarrollo"],
+          ["productos", "Productos"],
+          ["contacto", "Contacto"],
+        ].map(([id, label]) => (
+          <li key={id}>
+            <button
+              onClick={() => scrollToSection(id)}
+              className="footer-link hover:text-slate-900 transition cursor-pointer"
+            >
+              {label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-          <ul className="flex flex-col items-center gap-2 text-slate-600">
-            <li>
-              <a
-                href="https://wa.me/51944794663?text=Hola%20quiero%20hacer%20un%20pedido."
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-slate-900"
-              >
-                <FaWhatsapp></FaWhatsapp>
-              </a>
-            </li>
+    {/* Contacto */}
+    <div id="contacto">
+      <h4 className="font-hedvig text-lg mb-4">Contacto</h4>
 
-            <li>
-              <a
-                href="https://www.instagram.com/tilico.pe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-slate-900"
-              >
-                <FaInstagram/>
-              </a>
-            </li>
+      <ul className="flex flex-col items-center gap-4 text-slate-600">
+        <li>
+          <a
+            href="https://wa.me/51944794663?text=Hola%20quiero%20hacer%20un%20pedido."
+            target="_blank"
+            rel="noreferrer"
+            className="text-2xl hover:text-slate-900 transition-transform duration-300 hover:scale-110"
+          >
+            <FaWhatsapp />
+          </a>
+        </li>
 
-            <li className="text-sm text-slate-500">
-              Lima, Perú
-            </li>
-          </ul>
-        </div>
+        <li>
+          <a
+            href="https://www.instagram.com/tilico.pe"
+            target="_blank"
+            rel="noreferrer"
+            className="text-2xl hover:text-slate-900 transition-transform duration-300 hover:scale-110"
+          >
+            <FaInstagram />
+          </a>
+        </li>
 
-      </div>
+        <li className="text-sm text-slate-500 tracking-wide">
+          Lima, Perú
+        </li>
+      </ul>
+    </div>
+  </div>
 
-      {/* Línea inferior */}
-      <div className="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
-        © {new Date().getFullYear()} Tilico. Panadería artesanal.
-      </div>
-    </footer>
+  {/* Línea inferior */}
+  <div className="border-t border-slate-300 py-6 text-center text-xs tracking-widest text-slate-500">
+    © {new Date().getFullYear()} TILICO · PANADERÍA ARTESANAL
+  </div>
+</footer>
   )
 }
 
