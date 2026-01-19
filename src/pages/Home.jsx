@@ -11,7 +11,7 @@ import Products from '../components/Products.jsx'
 const Home = () => {
   return (
     <>
-      <Background image="/panavena.jpeg">
+      <Background image="/sandwich.jpg">
       <div id='home'>
         <Header/>
       </div>

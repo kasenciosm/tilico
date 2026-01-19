@@ -65,7 +65,6 @@ const Products = () => {
               w-full md:w-1/2
               h-64 md:h-80
               object-cover
-              rounded-lg
               shadow-xl
             "
           />
@@ -84,7 +83,7 @@ const Products = () => {
     </div>
 
     {/* CONTROLES */}
-    <div className="flex justify-center gap-6 mt-10">
+    <div className="flex justify-center gap-6 mt-10 pb-2">
       {current > 0 && (
         <button
           onClick={prev}
@@ -96,6 +95,7 @@ const Products = () => {
             shadow-md
             hover:bg-white
             transition
+            hover: cursor-pointer
           "
         >
           <FaArrowLeft />
@@ -113,6 +113,7 @@ const Products = () => {
             shadow-md
             hover:bg-white
             transition
+            hover: cursor-pointer
           "
         >
           <FaArrowRight />

@@ -51,7 +51,6 @@ const About = () => {
       <img
         className="
           w-3/4 md:w-full
-          rounded-lg
           shadow-xl
           object-cover
         "
