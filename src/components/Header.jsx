@@ -30,14 +30,20 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
+  const goToSection = (id) => {
     setOpen(false);
+    if (location.pathname !== "/") {
+    navigate("/", { state: { scrollTo: id } });
+  } else {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const yOffset = -80; // Ajusta este valor según la altura del header
-    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const yOffset = -80;
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
     window.scrollTo({ top: y, behavior: "smooth" });
+  }
   };
 
   const [isMobile, setIsMobile] = useState(false);
@@ -89,7 +95,7 @@ const Header = () => {
               ${
                 open && !scrolled
                   ? "text-white border-white"
-                  : "text-slate-400 border-slate-400"
+                  : "text-slate-700 border-slate-700"
               }
             `}
         >
@@ -146,37 +152,37 @@ const Header = () => {
         <nav className="flex flex-col gap-8 text-2xl md:text-xl mt-24 text-white items-start">
           <button
             className="hover: cursor-pointer hover:text-yellow-200"
-            onClick={() => scrollToSection("home")}
+            onClick={() => goToSection("home")}
           >
             Inicio
           </button>
           <button
             className="hover: cursor-pointer hover:text-yellow-200"
-            onClick={() => scrollToSection("nosotros")}
+            onClick={() => goToSection("nosotros")}
           >
             Nosotros
           </button>
           <button
             className="hover: cursor-pointer hover:text-yellow-200"
-            onClick={() => scrollToSection("tilico")}
+            onClick={() => goToSection("tilico")}
           >
             Tilico
           </button>
           <button
             className="hover: cursor-pointer hover:text-yellow-200"
-            onClick={() => scrollToSection("i+d")}
+            onClick={() => goToSection("i+d")}
           >
             Investigación y Desarrollo
           </button>
           <button
             className="hover: cursor-pointer hover:text-yellow-200"
-            onClick={() => scrollToSection("productos")}
+            onClick={() => goToSection("productos")}
           >
             Productos
           </button>
           <button
             className="hover: cursor-pointer hover:text-yellow-200"
-            onClick={() => scrollToSection("contacto")}
+            onClick={() => goToSection("contacto")}
           >
             Contacto
           </button>
