@@ -53,4 +53,13 @@ a:hover {
   width: 100%;
 }
 
+.snap-x::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-x {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 

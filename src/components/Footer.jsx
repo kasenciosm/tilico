@@ -1,18 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from './Logo' // Ajusta la ruta si es necesario
+import { useNavigate, useLocation } from 'react-router-dom'
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa'
 
 const Footer = () => {
 
-  const scrollToSection = (id) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goToSection = (id) => {
+    if (location.pathname !== "/") {
+    navigate("/", { state: { scrollTo: id } });
+  } else {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const yOffset = -80; // Ajusta este valor según la altura del header
+    const yOffset = -80;
     const y =
       el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
     window.scrollTo({ top: y, behavior: "smooth" });
+  }
   }
 
   return (
@@ -47,8 +56,8 @@ const Footer = () => {
         ].map(([id, label]) => (
           <li key={id}>
             <button
-              onClick={() => scrollToSection(id)}
-              className="footer-link"
+              onClick={() => goToSection(id)}
+              className="footer-link hover:cursor-pointer"
             >
               {label}
             </button>
