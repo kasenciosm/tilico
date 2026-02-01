@@ -16,12 +16,16 @@ const Investigacion = () => {
         <div className="absolute inset-0 bg-black/10"></div>
       </section>
 
+      <div className="flex justify-center py-26 pb-4">
+        <span className="block w-60 h-[0.8px] bg-slate-600"></span>
+      </div>
+
       {/* TEXTO */}
       <section className="max-w-4xl mx-auto px-6 md:px-8 py-20">
         <h2 className="text-3xl md:text-4xl font-hedvig text-slate-800 mb-8">
-          Investigación y Desarrollo
+          Investigación 
         </h2>
-
+  
         <p className="text-lg md:text-xl font-hedvig text-slate-700 leading-relaxed">
           En Tilico, la masa madre no es solo un ingrediente, es un organismo vivo
           que estudiamos y cuidamos día a día. Nuestro proceso de investigación
@@ -34,6 +38,10 @@ const Investigacion = () => {
           honestos y fieles a la tradición artesanal.
         </p>
       </section>
+
+      <div className="flex justify-center py-8 pb-28">
+        <span className="block w-60 h-[0.8px] bg-slate-600"></span>
+      </div>
 
       {/* GRID DE IMÁGENES */}
       <section className="max-w-6xl mx-auto px-6 md:px-8 pb-24">
