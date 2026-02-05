@@ -67,7 +67,7 @@ const Footer = () => {
     </div>
 
     {/* Columna 3 – Contacto */}
-    <div>
+    <div id='contacto'>
       <h4 className="font-hedvig text-[11px] mb-3 tracking-widest uppercase text-slate-700">
         Contacto
       </h4>
