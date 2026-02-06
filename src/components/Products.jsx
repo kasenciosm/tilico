@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const slides = [
@@ -22,37 +23,67 @@ const slides = [
   },
 ];
 
-const Slide = ({ slide }) => (
-  <div className="w-full max-w-6xl flex flex-col md:flex-row items-center gap-12 px-6">
+const Slide = ({ slide, isMobile = false }) => (
+  <div
+    className={`
+      w-full max-w-6xl flex
+      ${isMobile ? "flex-col gap-6" : "flex-col md:flex-row gap-12"}
+      items-center px-4
+    `}
+  >
     <img
       src={slide.image}
       alt={slide.title}
-      loading="lazy"
+      loading={isMobile ? "lazy" : "eager"}
       decoding="async"
-      className="w-full md:w-1/2 h-72 md:h-80 object-cover shadow-xl"
+      className={`
+        w-full md:w-1/2
+        ${isMobile ? "h-64 shadow-md" : "h-80 shadow-xl"}
+        object-cover
+      `}
     />
 
     <div className="w-full md:w-1/2 text-left">
-      <h4 className="text-3xl font-hedvig mb-4">{slide.title}</h4>
-      <p className="text-lg text-slate-700 leading-relaxed">
+      <h4 className="text-2xl md:text-3xl font-hedvig mb-3">
+        {slide.title}
+      </h4>
+      <p className="text-base md:text-lg text-slate-700 leading-relaxed">
         {slide.description}
       </p>
     </div>
   </div>
 );
 
+
 const Products = () => {
   const [current, setCurrent] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
+  const [showMobileSlider, setShowMobileSlider] = useState(false);
   const mobileTrackRef = useRef(null);
 
-  const handleMobileScroll = () => {
-    const el = mobileTrackRef.current;
-    if (!el) return;
+  const ticking = useRef(false);
 
-    const index = Math.round(el.scrollLeft / el.clientWidth);
-    setMobileIndex(index);
+  const handleMobileScroll = () => {
+    if (ticking.current) return;
+    ticking.current = true;
+
+    requestAnimationFrame(() => {
+       const el = mobileTrackRef.current;
+      if (!el) return;
+
+      const index = Math.round(el.scrollLeft / el.clientWidth);
+      setMobileIndex(index);
+      ticking.current = false;
+    });
+
   };
+
+  useEffect(() => {
+    if(window.innerWidth < 768) {
+      requestIdleCallback(() => setShowMobileSlider(true));
+    }
+
+  }, []);
 
   const prev = () => setCurrent((c) => Math.max(c - 1, 0));
   const next = () =>
@@ -99,7 +130,8 @@ const Products = () => {
       </div>
 
       {/* ===== MOBILE SLIDER ===== */}
-      <div
+      {showMobileSlider && (
+        <div
         ref={mobileTrackRef}
         onScroll={handleMobileScroll}
         className="md:hidden overflow-x-auto snap-x snap-mandatory flex gap-4 px-2 scroll-smooth"
@@ -110,6 +142,7 @@ const Products = () => {
           </div>
         ))}
       </div>
+      )}
 
       {/* DOTS MOBILE */}
       <div className="md:hidden flex justify-center gap-2 mt-14">

@@ -49,6 +49,8 @@ const Content = () => {
             <img
               src={item.img}
               alt={item.alt}
+              loading="lazy"
+              decoding="async"
               className="
                 w-full
                 h-56 md:h-80 lg:h-96
