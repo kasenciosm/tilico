@@ -9,6 +9,8 @@ const Investigacion = () => {
         <img
           src="/masamadrei.jpg"
           alt="Investigación y desarrollo de masa madre"
+          loading='lazy'
+          decoding='async'
           className="w-full h-full object-cover"
         />
 
@@ -50,24 +52,32 @@ const Investigacion = () => {
           <img
             src="/mminicio.jpg"
             alt="Masa madre activa"
+            loading='lazy'
+            decoding='async'
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/mmsemi.jpg"
             alt="Fermentación en proceso"
+            loading='lazy'
+            decoding='async'
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/mmpan.jpg"
             alt="Pruebas de horneado"
+            loading='lazy'
+            decoding='async'
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/panlisto.jpg"
             alt="Resultados finales"
+            loading='lazy'
+            decoding='async'
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 

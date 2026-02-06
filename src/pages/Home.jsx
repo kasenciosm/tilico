@@ -26,7 +26,12 @@ const Home = () => {
 
   return (
     <>
-      <Background image="/sandwich.jpg">
+      <Background 
+        image="/sandwich.jpg"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="high"
+        >
         <div id="home">
           <Header />
         </div>

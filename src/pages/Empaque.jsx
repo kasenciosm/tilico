@@ -10,6 +10,8 @@ const Empaque = () => {
           src="/empaques.jpg"
           alt="Investigación y desarrollo de masa madre"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding='async'
         />
 
         {/* overlay sutil opcional */}
@@ -48,18 +50,24 @@ const Empaque = () => {
           <img
             src="/empaque.jpg"
             alt="Masa madre activa"
+            loading='lazy'
+            decoding='async'
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/empaqueblanco.jpg"
             alt="Fermentación en proceso"
+            decoding='async'
+            loading='lazy'
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/empaquesvarios.jpg"
             alt="Pruebas de horneado"
+            decoding='async'
+            loading='lazy'
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 

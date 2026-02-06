@@ -8,6 +8,8 @@ const Desarrollo = () => {
         <img
           src="/panesportada.jpg"
           alt="Investigación y desarrollo de masa madre"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
 
@@ -58,24 +60,32 @@ const Desarrollo = () => {
           <img
             src="/mmbutter.jpg"
             alt="pan de masa madre con mantequilla"
+            loading="lazy"
+            decoding="async"
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/briochebuns.jpg"
             alt="Pan brioche cortado"
+            loading="lazy"
+            decoding="async"
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/baguette.jpg"
             alt="Pruebas de horneado"
+            loading="lazy"
+            decoding="async"
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
 
           <img
             src="/mmbutters.jpg"
             alt="Resultados finales"
+            loading="lazy"
+            decoding="async"
             className="w-full h-72 md:h-96 object-cover shadow-md"
           />
         </div>

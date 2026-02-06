@@ -27,6 +27,8 @@ const Slide = ({ slide }) => (
     <img
       src={slide.image}
       alt={slide.title}
+      loading="lazy"
+      decoding="async"
       className="w-full md:w-1/2 h-72 md:h-80 object-cover shadow-xl"
     />
 
@@ -80,7 +82,7 @@ const Products = () => {
           {current > 0 && (
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full bg-white/80 backdrop-blur shadow-md flex items-center justify-center hover:bg-white transition"
+              className="w-12 h-12 rounded-full bg-white/80 backdrop-blur shadow-md flex items-center justify-center hover:bg-white transition hover:cursor-pointer"
             >
               <FaArrowLeft />
             </button>
@@ -88,7 +90,7 @@ const Products = () => {
           {current < slides.length - 1 && (
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full bg-white/80 backdrop-blur shadow-md flex items-center justify-center hover:bg-white transition"
+              className="w-12 h-12 rounded-full bg-white/80 backdrop-blur shadow-md flex items-center justify-center hover:bg-white transition hover:cursor-pointer"
             >
               <FaArrowRight />
             </button>
