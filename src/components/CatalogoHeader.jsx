@@ -8,7 +8,7 @@ const CatalogoHeader = () => {
         
         {/* Mensaje */}
         <p className="text-sm md:text-base text-slate-300 font-hedvig">
-          Envío gratis por compras desde <strong>S/ 80</strong>
+          Envío gratis por compras desde <strong>S/ 60</strong>
         </p>
 
         {/* Redes */}

@@ -38,17 +38,17 @@ const CartDrawer = ({ isOpen, onClose }) => {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-slate-700 shadow-xl transform transition-transform duration-300 z-50 text-white
+        className={`fixed top-0 right-0 h-full w-80 bg-gray-800 shadow-xl transform transition-transform duration-300 z-50 text-white
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="flex justify-between items-center p-4 border-b">
+        <div className="flex justify-between items-center p-4 bg-gray-900">
           <h3 className="text-lg font-semibold">Tu carrito</h3>
           <button onClick={onClose}>
             <FaTimes />
           </button>
         </div>
 
-        <div className="p-4 flex flex-col gap-4 overflow-y-auto h-[70%]">
+        <div className="p-4 flex flex-col gap-4 overflow-y-auto h-[68%]">
           {cart.length === 0 && (
             <p className="text-slate-500">Tu carrito está vacío</p>
           )}
@@ -90,7 +90,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
 
           <button
             onClick={clearCart}
-            className="w-full mb-2 py-2 border bg-slate-300 text-sm text-slate-950 rounded-md font-semibold hover:cursor-pointer hover:bg-red-300 transition"
+            className="w-full mb-2 py-2 border bg-slate-300 text-sm text-slate-950 rounded-md font-semibold hover:cursor-pointer hover:bg-red-400 transition"
           >
             Vaciar carrito
           </button>

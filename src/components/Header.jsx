@@ -99,7 +99,7 @@ const Header = () => {
               }
             `}
         >
-          SHOP
+          COMPRAR
         </a>
 
         {/* HAMBURGUESA */}

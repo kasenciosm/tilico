@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
       />
 
       <div className="p-4 flex flex-col gap-3">
-        <h4 className="text-lg font-hedvig">{product.name}</h4>
+        <h4 className="text-lg font-hedvig">{product.title}</h4>
 
         <p className="text-slate-700 font-bold">S/ {product.price}</p>
 

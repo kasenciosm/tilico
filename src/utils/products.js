@@ -22,7 +22,7 @@ const products = [
         },
         {
             id: 4,
-            title: "Pan de Arandanos y Pecanas",
+            title: "Pan de Arandanos y Nueces",
             image:"/panarandano.webp",
             price: 20,
             qty: 1,
