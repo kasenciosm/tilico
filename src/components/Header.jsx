@@ -86,7 +86,7 @@ const Header = () => {
       <div className="fixed top-4 right-4 md:top-6 md:right-6 flex items-center gap-6 z-1100">
         {/* SHOP */}
         <a
-          href="https://wa.me/51944794663?text=Hola%20quiero%20hacer%20un%20pedido."
+          href="/catalogo"
           target="_blank"
           rel="noopener noreferrer"
           className={`
