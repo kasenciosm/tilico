@@ -4,12 +4,10 @@ import CatalogoHeader from "../components/CatalogoHeader";
 import products from "../utils/products";
 
 const ProductCard = ({ product }) => {
-
   const { addToCart } = useCart();
 
   return (
     <div className="border border-slate-200 shadow-sm hover:shadow-md transition">
-      
       <img
         src={product.image}
         alt={product.title}
@@ -23,9 +21,10 @@ const ProductCard = ({ product }) => {
 
         <p className="text-slate-700 font-bold">S/ {product.price}</p>
 
-        <button 
+        <button
           className="mt-auto border border-slate-800 py-2 text-sm hover:bg-slate-800 hover:text-white transition hover:cursor-pointer"
-          onClick={() => addToCart(product)}>
+          onClick={() => addToCart(product)}
+        >
           Agregar
         </button>
       </div>
@@ -33,18 +32,20 @@ const ProductCard = ({ product }) => {
   );
 };
 
-
 const Catalogo = () => {
-
   return (
     <>
       <CatalogoHeader />
-      <div>
-        <h1 className="text-2xl font-bold text-left py-8 p-4 font-hedvig text-slate-950">
-            TILICO GOURMET - Catálogo de Productos
-        </h1>
-      </div>
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="py-8 text-left">
+        <div className="max-w-2xl mx-6">
+          <p className="text-sm md:text-xl font-hedvig tracking-wide text-slate-800 leading-relaxed">
+            Masa madre viva. <br />
+            Granos seleccionados. <br />
+            Horneado consciente.
+          </p>
+        </div>
+      </section>
+      <section className="max-w-7xl mx-auto px-6 py-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
