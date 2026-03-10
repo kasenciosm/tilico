@@ -36,12 +36,19 @@ const Catalogo = () => {
   return (
     <>
       <CatalogoHeader />
-      <section className="py-8 text-left">
+      <section className="py-8 text-left justify-between flex flex-col md:flex-row max-w-7xl mx-auto px-6 gap-6">
         <div className="max-w-2xl mx-6">
           <p className="text-sm md:text-xl font-hedvig tracking-wide text-slate-800 leading-relaxed">
             Masa madre viva. <br />
             Granos seleccionados. <br />
             Horneado consciente.
+          </p>
+          
+        </div>
+        <div className="max-w-2xl mx-6">
+          <p className="text-sm md:text-md font-hedvig text-red-500">
+            * Pedidos con 24 horas de anticipación.
+              
           </p>
         </div>
       </section>

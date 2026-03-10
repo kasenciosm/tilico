@@ -8,8 +8,9 @@ const CatalogoHeader = () => {
         
         {/* Mensaje */}
         <p className="text-sm md:text-base text-slate-300 font-hedvig">
-          Envío gratis por compras desde <strong>S/ 60</strong>
+          Envío gratis por compras desde <strong className='font-bold'>S/ 60</strong>
         </p>
+        
 
         {/* Redes */}
         <div className="flex gap-4 text-slate-300">
