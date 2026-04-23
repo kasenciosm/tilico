@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
+import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from './utils/ScrollToTop.jsx'
 import './App.css'
 
@@ -35,6 +36,8 @@ function App() {
       <Footer/>
       <FloatingCartButton onClick={() => setIsOpen(true)} />
       <CartDrawer isOpen={isOpen} onClose={() => setIsOpen(false)} />
+
+      <Analytics />
     </>
     
   )
